@@ -41,7 +41,7 @@ pipeline {
     stage('Docker B&P') {
       steps {
         script {
-          docker.withRegistry('https://index.docker.io/v1','dockerlogin'){
+          docker.withRegistry('https://index.docker.io/v1/','dockerlogin'){
             def dockerImage = docker.build("harinisampath1997/sysfoo:v${env.BUILD_ID}","./")
 
             dockerImage.push()
